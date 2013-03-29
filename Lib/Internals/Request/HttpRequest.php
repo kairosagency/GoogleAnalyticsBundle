@@ -26,11 +26,10 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\Config;
-
-use GoogleAnalytics\Internals\Util;
+use GoogleAnalytics\Lib\Config;
+use GoogleAnalytics\Lib\Internals\Util;
 
 /**
  * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/core/GIFRequest.as
@@ -46,7 +45,7 @@ abstract class HttpRequest {
     protected $type;
 
     /**
-     * @var \GoogleAnalytics\Config
+     * @var \GoogleAnalytics\Lib\Config
      */
     protected $config;
 
@@ -62,21 +61,21 @@ abstract class HttpRequest {
 
 
     /**
-     * @param \GoogleAnalytics\Config $config
+     * @param \GoogleAnalytics\Lib\Config $config
      */
     public function __construct(Config $config = null) {
         $this->setConfig($config ? $config : new Config());
     }
 
     /**
-     * @return \GoogleAnalytics\Config
+     * @return \GoogleAnalytics\Lib\Config
      */
     public function getConfig() {
         return $this->config;
     }
 
     /**
-     * @param \GoogleAnalytics\Config $config
+     * @param \GoogleAnalytics\Lib\Config $config
      */
     public function setConfig(Config $config) {
         $this->config = $config;
@@ -156,7 +155,7 @@ abstract class HttpRequest {
     }
 
     /**
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected abstract function buildParameters();
 

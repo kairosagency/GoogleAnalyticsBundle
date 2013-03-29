@@ -1,0 +1,7 @@
+parameters:
+    google_analytics.class: Kairos\ArboBundle\Entity\Manager\ElementArboManager
+
+services:
+    google_analytics:
+        class: %google_analytics.class%
+        arguments:    [ %google_analytics.accountID% , %google_analytics.domain% ]

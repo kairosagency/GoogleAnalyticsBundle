@@ -26,16 +26,15 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\Page;
-
-use GoogleAnalytics\Internals\X10;
+use GoogleAnalytics\Lib\Page;
+use GoogleAnalytics\Lib\Internals\X10;
 
 class PageviewRequest extends Request {
 
     /**
-     * @var \GoogleAnalytics\Page
+     * @var \GoogleAnalytics\Lib\Page
      */
     protected $page;
 
@@ -54,7 +53,7 @@ class PageviewRequest extends Request {
     }
 
     /**
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildParameters() {
         $p = parent::buildParameters();
@@ -90,14 +89,14 @@ class PageviewRequest extends Request {
     }
 
     /**
-     * @return \GoogleAnalytics\Page
+     * @return \GoogleAnalytics\Lib\Page
      */
     public function getPage() {
         return $this->page;
     }
 
     /**
-     * @param \GoogleAnalytics\Page $page
+     * @param \GoogleAnalytics\Lib\Page $page
      */
     public function setPage(Page $page) {
         $this->page = $page;

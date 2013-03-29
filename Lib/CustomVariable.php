@@ -26,9 +26,9 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics;
+namespace GoogleAnalytics\Lib;
 
-use GoogleAnalytics\Internals\Util;
+use GoogleAnalytics\Lib\Internals\Util;
 
 /**
  * @link http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html

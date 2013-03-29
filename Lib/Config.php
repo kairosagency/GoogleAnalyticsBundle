@@ -26,7 +26,7 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics;
+namespace GoogleAnalytics\Lib;
 
 /**
  * Note: Doesn't necessarily have to be consistent across requests, as it doesn't
@@ -58,7 +58,7 @@ class Config {
      */
     const ERROR_SEVERITY_WARNINGS   = 1;
     /**
-     * Throw GoogleAnalytics\Exception exceptions.
+     * Throw GoogleAnalytics\Lib\Exception exceptions.
      */
     const ERROR_SEVERITY_EXCEPTIONS = 2;
 

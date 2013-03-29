@@ -26,7 +26,7 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals;
+namespace GoogleAnalytics\Lib\Internals;
 
 /**
  * This is nearly a 1:1 PHP port of the gaforflash X10 class code.

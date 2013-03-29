@@ -26,16 +26,15 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\Transaction;
-
-use GoogleAnalytics\Internals\ParameterHolder;
+use GoogleAnalytics\Lib\Transaction;
+use GoogleAnalytics\Lib\Internals\ParameterHolder;
 
 class TransactionRequest extends Request {
 
     /**
-     * @var \GoogleAnalytics\Transaction
+     * @var \GoogleAnalytics\Lib\Transaction
      */
     protected $transaction;
 
@@ -50,7 +49,7 @@ class TransactionRequest extends Request {
     /**
      * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/ecommerce/Transaction.as#76
      *
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildParameters() {
         $p = parent::buildParameters();
@@ -71,8 +70,8 @@ class TransactionRequest extends Request {
      * The GA Javascript client doesn't send any visitor information for
      * e-commerce requests, so we don't either.
      *
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildVisitorParameters(ParameterHolder $p) {
         return $p;
@@ -82,22 +81,22 @@ class TransactionRequest extends Request {
      * The GA Javascript client doesn't send any custom variables for
      * e-commerce requests, so we don't either.
      *
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildCustomVariablesParameter(ParameterHolder $p) {
         return $p;
     }
 
     /**
-     * @return \GoogleAnalytics\Transaction
+     * @return \GoogleAnalytics\Lib\Transaction
      */
     public function getTransaction() {
         return $this->transaction;
     }
 
     /**
-     * @param \GoogleAnalytics\Transaction $transaction
+     * @param \GoogleAnalytics\Lib\Transaction $transaction
      */
     public function setTransaction(Transaction $transaction) {
         $this->transaction = $transaction;

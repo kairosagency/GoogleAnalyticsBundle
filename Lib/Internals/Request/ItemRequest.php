@@ -26,16 +26,15 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\Item;
-
-use GoogleAnalytics\Internals\ParameterHolder;
+use GoogleAnalytics\Lib\Item;
+use GoogleAnalytics\Lib\Internals\ParameterHolder;
 
 class ItemRequest extends Request {
 
     /**
-     * @var \GoogleAnalytics\Item
+     * @var \GoogleAnalytics\Lib\Item
      */
     protected $item;
 
@@ -50,7 +49,7 @@ class ItemRequest extends Request {
     /**
      * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/ecommerce/Item.as#61
      *
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildParameters() {
         $p = parent::buildParameters();
@@ -69,8 +68,8 @@ class ItemRequest extends Request {
      * The GA Javascript client doesn't send any visitor information for
      * e-commerce requests, so we don't either.
      *
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildVisitorParameters(ParameterHolder $p) {
         return $p;
@@ -80,22 +79,22 @@ class ItemRequest extends Request {
      * The GA Javascript client doesn't send any custom variables for
      * e-commerce requests, so we don't either.
      *
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildCustomVariablesParameter(ParameterHolder $p) {
         return $p;
     }
 
     /**
-     * @return \GoogleAnalytics\Item
+     * @return \GoogleAnalytics\Lib\Item
      */
     public function getItem() {
         return $this->item;
     }
 
     /**
-     * @param \GoogleAnalytics\Item $item
+     * @param \GoogleAnalytics\Lib\Item $item
      */
     public function setItem(Item $item) {
         $this->item = $item;

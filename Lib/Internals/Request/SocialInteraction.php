@@ -26,14 +26,14 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\SocialInteraction;
+use GoogleAnalytics\Lib\SocialInteraction;
 
 class SocialinteractionRequest extends PageviewRequest {
 
     /**
-     * @var \GoogleAnalytics\SocialInteraction
+     * @var \GoogleAnalytics\Lib\SocialInteraction
      */
     protected $socialInteraction;
 
@@ -46,7 +46,7 @@ class SocialinteractionRequest extends PageviewRequest {
     }
 
     /**
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildParameters() {
         $p = parent::buildParameters();
@@ -64,14 +64,14 @@ class SocialinteractionRequest extends PageviewRequest {
     }
 
     /**
-     * @return \GoogleAnalytics\SocialInteraction
+     * @return \GoogleAnalytics\Lib\SocialInteraction
      */
     public function getSocialInteraction() {
         return $this->socialInteraction;
     }
 
     /**
-     * @param \GoogleAnalytics\SocialInteraction $socialInteraction
+     * @param \GoogleAnalytics\Lib\SocialInteraction $socialInteraction
      */
     public function setSocialInteraction(SocialInteraction $socialInteraction) {
         $this->socialInteraction = $socialInteraction;

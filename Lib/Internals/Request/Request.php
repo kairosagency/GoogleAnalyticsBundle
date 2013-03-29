@@ -26,31 +26,31 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\Tracker;
-use GoogleAnalytics\Visitor;
-use GoogleAnalytics\Session;
-use GoogleAnalytics\CustomVariable;
+use GoogleAnalytics\Lib\Tracker;
+use GoogleAnalytics\Lib\Visitor;
+use GoogleAnalytics\Lib\Session;
+use GoogleAnalytics\Lib\CustomVariable;
 
-use GoogleAnalytics\Internals\ParameterHolder;
-use GoogleAnalytics\Internals\Util;
-use GoogleAnalytics\Internals\X10;
+use GoogleAnalytics\Lib\Internals\ParameterHolder;
+use GoogleAnalytics\Lib\Internals\Util;
+use GoogleAnalytics\Lib\Internals\X10;
 
 abstract class Request extends HttpRequest {
 
     /**
-     * @var \GoogleAnalytics\Tracker
+     * @var \GoogleAnalytics\Lib\Tracker
      */
     protected $tracker;
 
     /**
-     * @var \GoogleAnalytics\Visitor
+     * @var \GoogleAnalytics\Lib\Visitor
      */
     protected $visitor;
 
     /**
-     * @var \GoogleAnalytics\Session
+     * @var \GoogleAnalytics\Lib\Session
      */
     protected $session;
 
@@ -143,7 +143,7 @@ abstract class Request extends HttpRequest {
     }
 
     /**
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildParameters() {
         $p = new ParameterHolder();
@@ -180,8 +180,8 @@ abstract class Request extends HttpRequest {
     }
 
     /**
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildVisitorParameters(ParameterHolder $p) {
         // Ensure correct locale format, see https://developer.mozilla.org/en/navigator.language
@@ -203,8 +203,8 @@ abstract class Request extends HttpRequest {
 
     /**
      * @link http://xahlee.org/js/google_analytics_tracker_2010-07-01_expanded.js line 575
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildCustomVariablesParameter(ParameterHolder $p) {
         $customVars = $this->tracker->getCustomVariables();
@@ -241,8 +241,8 @@ abstract class Request extends HttpRequest {
 
     /**
      * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/core/GIFRequest.as#123
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildCookieParameters(ParameterHolder $p) {
         $domainHash = $this->generateDomainHash();
@@ -279,8 +279,8 @@ abstract class Request extends HttpRequest {
     /**
      * Save user parameters in a cookie. Usefull to persist user information during navigation.
      *
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function saveCookieParameters(ParameterHolder $p) {
 
@@ -293,8 +293,8 @@ abstract class Request extends HttpRequest {
 
 
     /**
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildCampaignParameters(ParameterHolder $p) {
         $campaign = $this->tracker->getCampaign();
@@ -342,42 +342,42 @@ abstract class Request extends HttpRequest {
     }
 
     /**
-     * @return \GoogleAnalytics\Tracker
+     * @return \GoogleAnalytics\Lib\Tracker
      */
     public function getTracker() {
         return $this->tracker;
     }
 
     /**
-     * @param \GoogleAnalytics\Tracker $tracker
+     * @param \GoogleAnalytics\Lib\Tracker $tracker
      */
     public function setTracker(Tracker $tracker) {
         $this->tracker = $tracker;
     }
 
     /**
-     * @return \GoogleAnalytics\Visitor
+     * @return \GoogleAnalytics\Lib\Visitor
      */
     public function getVisitor() {
         return $this->visitor;
     }
 
     /**
-     * @param \GoogleAnalytics\Visitor $visitor
+     * @param \GoogleAnalytics\Lib\Visitor $visitor
      */
     public function setVisitor(Visitor $visitor) {
         $this->visitor = $visitor;
     }
 
     /**
-     * @return \GoogleAnalytics\Session
+     * @return \GoogleAnalytics\Lib\Session
      */
     public function getSession() {
         return $this->session;
     }
 
     /**
-     * @param \GoogleAnalytics\Session $session
+     * @param \GoogleAnalytics\Lib\Session $session
      */
     public function setSession(Session $session) {
         $this->session = $session;
@@ -387,7 +387,7 @@ abstract class Request extends HttpRequest {
     /**
      * Allow user to get cookie parameters so as to store them as session parameters, or cookies
      *
-     * @param \GoogleAnalytics\Internals\ParameterHolder $p
+     * @param \GoogleAnalytics\Lib\Internals\ParameterHolder $p
      * @return array
      */
     protected function setCookieParameters(ParameterHolder $p) {

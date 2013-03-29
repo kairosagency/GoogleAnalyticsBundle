@@ -26,16 +26,15 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals\Request;
+namespace GoogleAnalytics\Lib\Internals\Request;
 
-use GoogleAnalytics\Event;
-
-use GoogleAnalytics\Internals\X10;
+use GoogleAnalytics\Lib\Event;
+use GoogleAnalytics\Lib\Internals\X10;
 
 class EventRequest extends Request {
 
     /**
-     * @var \GoogleAnalytics\Event
+     * @var \GoogleAnalytics\Lib\Event
      */
     protected $event;
 
@@ -56,7 +55,7 @@ class EventRequest extends Request {
     /**
      * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/v4/Tracker.as#1503
      *
-     * @return \GoogleAnalytics\Internals\ParameterHolder
+     * @return \GoogleAnalytics\Lib\Internals\ParameterHolder
      */
     protected function buildParameters() {
         $p = parent::buildParameters();
@@ -91,14 +90,14 @@ class EventRequest extends Request {
     }
 
     /**
-     * @return \GoogleAnalytics\Event
+     * @return \GoogleAnalytics\Lib\Event
      */
     public function getEvent() {
         return $this->event;
     }
 
     /**
-     * @param \GoogleAnalytics\Event $event
+     * @param \GoogleAnalytics\Lib\Event $event
      */
     public function setEvent(Event $event) {
         $this->event = $event;

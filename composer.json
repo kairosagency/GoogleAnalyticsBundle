@@ -18,10 +18,11 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "symfony/framework-bundle": ">=2.1,<2.3-dev"
     },
     "autoload": {
-        "psr-0": { "GoogleAnalytics": "googleanalytics/src/" }
+        "psr-0": { "GoogleAnalytics": "" }
     },
-    "target-dir": "googleanalytics"
+    "target-dir": "GoogleAnalytics"
 }

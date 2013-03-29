@@ -26,9 +26,9 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Internals;
+namespace GoogleAnalytics\Lib\Internals;
 
-use GoogleAnalytics\Tracker;
+use GoogleAnalytics\Lib\Tracker;
 
 /**
  * This simple class is mainly meant to be a well-documented overview of all

@@ -26,7 +26,7 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics;
+namespace GoogleAnalytics\Lib;
 
 /**
  * @link http://code.google.com/apis/analytics/docs/tracking/eventTrackerOverview.html

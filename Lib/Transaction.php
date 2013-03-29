@@ -26,7 +26,7 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics;
+namespace GoogleAnalytics\Lib;
 
 /**
  * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/ecommerce/Transaction.as
@@ -100,7 +100,7 @@ class Transaction {
 
     /**
      * @see Transaction::addItem()
-     * @var \GoogleAnalytics\Item[]
+     * @var \GoogleAnalytics\Lib\Item[]
      */
     protected $items = array();
 
@@ -113,7 +113,7 @@ class Transaction {
 
     /**
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._addItem
-     * @param \GoogleAnalytics\Item $item
+     * @param \GoogleAnalytics\Lib\Item $item
      */
     public function addItem(Item $item) {
         // Associated items inherit the transaction's order ID
@@ -124,7 +124,7 @@ class Transaction {
     }
 
     /**
-     * @return \GoogleAnalytics\Item[]
+     * @return \GoogleAnalytics\Lib\Item[]
      */
     public function getItems() {
         return $this->items;

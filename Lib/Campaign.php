@@ -26,10 +26,10 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics;
+namespace GoogleAnalytics\Lib;
 
-use GoogleAnalytics\Internals\Request\Request;
-use GoogleAnalytics\Internals\Util;
+use GoogleAnalytics\Lib\Internals\Request\Request;
+use GoogleAnalytics\Lib\Internals\Util;
 
 use DateTime;
 
@@ -239,7 +239,7 @@ class Campaign {
     /**
      * @link http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/campaign/CampaignManager.as#333
      * @param string $url
-     * @return \GoogleAnalytics\Campaign
+     * @return \GoogleAnalytics\Lib\Campaign
      */
     public static function createFromReferrer($url) {
         $instance = new static(self::TYPE_REFERRAL);

@@ -26,14 +26,14 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics;
+namespace GoogleAnalytics\Lib;
 
-use GoogleAnalytics\Internals\Util;
-use GoogleAnalytics\Internals\Request\PageviewRequest;
-use GoogleAnalytics\Internals\Request\EventRequest;
-use GoogleAnalytics\Internals\Request\TransactionRequest;
-use GoogleAnalytics\Internals\Request\ItemRequest;
-use GoogleAnalytics\Internals\Request\SocialInteractionRequest;
+use GoogleAnalytics\Lib\Internals\Util;
+use GoogleAnalytics\Lib\Internals\Request\PageviewRequest;
+use GoogleAnalytics\Lib\Internals\Request\EventRequest;
+use GoogleAnalytics\Lib\Internals\Request\TransactionRequest;
+use GoogleAnalytics\Lib\Internals\Request\ItemRequest;
+use GoogleAnalytics\Lib\Internals\Request\SocialInteractionRequest;
 
 class Tracker {
 
@@ -54,7 +54,7 @@ class Tracker {
     /**
      * The configuration to use for all tracker instances.
      *
-     * @var \GoogleAnalytics\Config
+     * @var \GoogleAnalytics\Lib\Config
      */
     protected static $config;
 
@@ -91,7 +91,7 @@ class Tracker {
     protected $customVariables = array();
 
     /**
-     * @var \GoogleAnalytics\Campaign
+     * @var \GoogleAnalytics\Lib\Campaign
      */
     protected $campaign;
 
@@ -99,7 +99,7 @@ class Tracker {
     /**
      * @param string $accountId
      * @param string $domainName
-     * @param \GoogleAnalytics\Config $config
+     * @param \GoogleAnalytics\Lib\Config $config
      */
     public function __construct($accountId, $domainName, Config $config = null) {
         static::setConfig($config ? $config : new Config());
@@ -109,14 +109,14 @@ class Tracker {
     }
 
     /**
-     * @return \GoogleAnalytics\Config
+     * @return \GoogleAnalytics\Lib\Config
      */
     public static function getConfig() {
         return static::$config;
     }
 
     /**
-     * @param \GoogleAnalytics\Config $value
+     * @param \GoogleAnalytics\Lib\Config $value
      */
     public static function setConfig(Config $value) {
         static::$config = $value;
@@ -172,7 +172,7 @@ class Tracker {
      * Equivalent of _setCustomVar() in GA Javascript client.
      *
      * @link http://code.google.com/apis/analytics/docs/tracking/gaTrackingCustomVariables.html
-     * @param \GoogleAnalytics\CustomVariable $customVariable
+     * @param \GoogleAnalytics\Lib\CustomVariable $customVariable
      */
     public function addCustomVariable(CustomVariable $customVariable) {
         // Ensure that all required parameters are set
@@ -183,7 +183,7 @@ class Tracker {
     }
 
     /**
-     * @return \GoogleAnalytics\CustomVariable[]
+     * @return \GoogleAnalytics\Lib\CustomVariable[]
      */
     public function getCustomVariables() {
         return $this->customVariables;
@@ -199,7 +199,7 @@ class Tracker {
     }
 
     /**
-     * @param \GoogleAnalytics\Campaign $campaign Isn't really optional, but can be set to null
+     * @param \GoogleAnalytics\Lib\Campaign $campaign Isn't really optional, but can be set to null
      */
     public function setCampaign(Campaign $campaign = null) {
         if($campaign) {
@@ -211,7 +211,7 @@ class Tracker {
     }
 
     /**
-     * @return \GoogleAnalytics\Campaign|null
+     * @return \GoogleAnalytics\Lib\Campaign|null
      */
     public function getCampaign() {
         return $this->campaign;
@@ -221,9 +221,9 @@ class Tracker {
      * Equivalent of _trackPageview() in GA Javascript client.
      *
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview
-     * @param \GoogleAnalytics\Page $page
-     * @param \GoogleAnalytics\Session $session
-     * @param \GoogleAnalytics\Visitor $visitor
+     * @param \GoogleAnalytics\Lib\Page $page
+     * @param \GoogleAnalytics\Lib\Session $session
+     * @param \GoogleAnalytics\Lib\Visitor $visitor
      */
     public function trackPageview(Page $page, Session $session, Visitor $visitor) {
         $request = new PageviewRequest(static::$config);
@@ -238,9 +238,9 @@ class Tracker {
      * Equivalent of _trackEvent() in GA Javascript client.
      *
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEventTracking.html#_gat.GA_EventTracker_._trackEvent
-     * @param \GoogleAnalytics\Event $event
-     * @param \GoogleAnalytics\Session $session
-     * @param \GoogleAnalytics\Visitor $visitor
+     * @param \GoogleAnalytics\Lib\Event $event
+     * @param \GoogleAnalytics\Lib\Session $session
+     * @param \GoogleAnalytics\Lib\Visitor $visitor
      */
     public function trackEvent(Event $event, Session $session, Visitor $visitor) {
         // Ensure that all required parameters are set
@@ -263,9 +263,9 @@ class Tracker {
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._addItem
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html#_gat.GA_Tracker_._trackTrans
      *
-     * @param \GoogleAnalytics\Transaction $transaction
-     * @param \GoogleAnalytics\Session $session
-     * @param \GoogleAnalytics\Visitor $visitor
+     * @param \GoogleAnalytics\Lib\Transaction $transaction
+     * @param \GoogleAnalytics\Lib\Session $session
+     * @param \GoogleAnalytics\Lib\Visitor $visitor
      */
     public function trackTransaction(Transaction $transaction, Session $session, Visitor $visitor) {
         // Ensure that all required parameters are set
@@ -297,10 +297,10 @@ class Tracker {
      * Equivalent of _trackSocial() in GA Javascript client.
      *
      * @link http://code.google.com/apis/analytics/docs/tracking/gaTrackingSocial.html#settingUp
-     * @param \GoogleAnalytics\SocialInteraction $socialInteraction
-     * @param \GoogleAnalytics\Page $page
-     * @param \GoogleAnalytics\Session $session
-     * @param \GoogleAnalytics\Visitor $visitor
+     * @param \GoogleAnalytics\Lib\SocialInteraction $socialInteraction
+     * @param \GoogleAnalytics\Lib\Page $page
+     * @param \GoogleAnalytics\Lib\Session $session
+     * @param \GoogleAnalytics\Lib\Visitor $visitor
      */
     public function trackSocial(SocialInteraction $socialInteraction, Page $page, Session $session, Visitor $visitor) {
         $request = new SocialInteractionRequest(static::$config);
