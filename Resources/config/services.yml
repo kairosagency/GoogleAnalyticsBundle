@@ -4,4 +4,4 @@ parameters:
 services:
     google_analytics:
         class: %google_analytics.class%
-        arguments:    [ %google_analytics.accountID% , %google_analytics.domain% ]
+        arguments:    [ %php_ga_accountID% , %php_ga_domain% ]
