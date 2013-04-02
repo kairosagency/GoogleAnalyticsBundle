@@ -1,6 +1,6 @@
 <?php
 
-namespace GoogleAnalyticsBundle;
+namespace GoogleAnalytics;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

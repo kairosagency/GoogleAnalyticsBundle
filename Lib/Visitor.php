@@ -26,7 +26,7 @@
  * @copyright Copyright (c) 2010 United Prototype GmbH (http://unitedprototype.com)
  */
 
-namespace GoogleAnalytics\Lib\Lib;
+namespace GoogleAnalytics\Lib;
 
 use GoogleAnalytics\Lib\Internals\Util;
 
