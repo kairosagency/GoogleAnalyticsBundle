@@ -232,6 +232,8 @@ class Tracker {
         $request->setVisitor($visitor);
         $request->setTracker($this);
         $request->fire();
+
+        return $request;
     }
 
     /**
@@ -252,6 +254,8 @@ class Tracker {
         $request->setVisitor($visitor);
         $request->setTracker($this);
         $request->fire();
+
+        return $request;
     }
 
     /**
@@ -291,6 +295,8 @@ class Tracker {
             $request->setTracker($this);
             $request->fire();
         }
+
+        return $request;
     }
 
     /**
@@ -310,6 +316,8 @@ class Tracker {
         $request->setVisitor($visitor);
         $request->setTracker($this);
         $request->fire();
+
+        return $request;
     }
 
     /**
@@ -337,6 +345,21 @@ class Tracker {
                 throw new Exception($message);
                 break;
         }
+    }
+
+    /**
+     * @param $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function setCookies($request)
+    {
+        $response = new \Symfony\Component\HttpFoundation\Response();
+
+        foreach($request->getCookieParameters() as $key => $cookie) {
+            $response->headers->setCookie(new \Symfony\Component\HttpFoundation\Cookie($key, $cookie['value'], $cookie['expire']));
+        }
+
+        return $response;
     }
 
 }

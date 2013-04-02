@@ -85,15 +85,16 @@ class Session {
      * @return $this
      */
     public function fromUtmb($value) {
-        $parts = explode('.', $value);
-        if(count($parts) != 4) {
-            Tracker::_raiseError('The given "__utmb" cookie value is invalid.', __METHOD__);
-            return $this;
+        if($value != null) {
+            $parts = explode('.', $value);
+            if(count($parts) != 4) {
+                Tracker::_raiseError('The given "__utmb" cookie value is invalid.', __METHOD__);
+                return $this;
+            }
+
+            $this->setTrackCount($parts[1]);
+            $this->setStartTime(new DateTime('@' . $parts[3]));
         }
-
-        $this->setTrackCount($parts[1]);
-        $this->setStartTime(new DateTime('@' . $parts[3]));
-
         // Allow chaining
         return $this;
     }

@@ -1,4 +1,5 @@
-# Server-Side Google Analytics PHP Client
+Getting Started With Server-Side Google Analytics PHP Client
+==================================
 
 ## Important  
 This package is directly based on this project from UnitedPrototype : http://code.google.com/p/php-ga/ 
@@ -23,20 +24,25 @@ Requires PHP 5.3 as namespaces and closures are used. Has no other dependencies 
 
 **In your composer file file :**
 
+``` js
     {
         "require": {
             "kairos/googleanalytics": "dev-master"
         }
     }
+```
 
 **Update your composer :**
 
+``` bash
     php composer.phar update kairos/googleanalytics
+```
 
 Composer will install the bundle to your project's vendor/kairos directory.
     
 **Enable the bundle in the AppKernel file :**
 
+``` php
     <?php
     // app/AppKernel.php
 
@@ -47,22 +53,29 @@ Composer will install the bundle to your project's vendor/kairos directory.
             new GoogleAnalytics\GoogleAnalyticsBundle(),
         );
     }
-    
+```
+
 **In your parameters.yml**
 
+``` yaml
     parameters:
         php_ga_accountID:   UA-12345678-9
         php_ga_domain:      yourwebsite.com
-        
-        
+```
+
+## How To use :
+
 **In your bundle :**
 
 You now can include the class in your controller
 
+``` php
     use GoogleAnalytics;
+```
 
 And track page (or events etc.) :
 
+``` php
     // Initilize GA Tracker
     $tracker = $this->get('googleanalytics');
     
@@ -81,3 +94,7 @@ And track page (or events etc.) :
     
     // Track page view
     $tracker->trackPageview($page, $session, $visitor);
+```
+
+- [Read more](https://github.com/kairosagency/GoogleAnalyticsBundle/tree/master/Resources/doc/index.md)
+- [Using Cookies](https://github.com/kairosagency/GoogleAnalyticsBundle/tree/master/Resources/doc/using_cookies.md)

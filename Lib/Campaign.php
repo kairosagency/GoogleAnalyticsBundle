@@ -200,38 +200,39 @@ class Campaign {
      * @return $this
      */
     public function fromUtmz($value) {
-        $params = explode(Request::CAMPAIGN_DELIMITER, $value);
-        $parts  = explode('.', $params[0], 5);
-        if(count($parts) != 5) {
-            Tracker::_raiseError('The given "__utmz" cookie value is invalid.', __METHOD__);
-            return $this;
-        }
+        if($value != null) {
+            $params = explode(Request::CAMPAIGN_DELIMITER, $value);
+            $parts  = explode('.', $params[0], 5);
+            if(count($parts) != 5) {
+                Tracker::_raiseError('The given "__utmz" cookie value is invalid.', __METHOD__);
+                return $this;
+            }
 
-        $this->setCreationTime(new DateTime('@' . $parts[1]));
-        $this->setResponseCount($parts[3]);
+            $this->setCreationTime(new DateTime('@' . $parts[1]));
+            $this->setResponseCount($parts[3]);
 
-        array_unshift($params, $parts[4]);
-        foreach($params as $param) {
-            list($key, $val) = explode('=', $param);
+            array_unshift($params, $parts[4]);
+            foreach($params as $param) {
+                list($key, $val) = explode('=', $param);
 
-            // See http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/campaign/CampaignTracker.as#236
-            $paramMap = array(
-                'utmcid'   => 'id',
-                'utmcsr'   => 'source',
-                'utmgclid' => 'gClickId',
-                'utmdclid' => 'dClickId',
-                'utmccn'   => 'name',
-                'utmcmd'   => 'medium',
-                'utmctr'   => 'term',
-                'utmcct'   => 'content',
-            );
+                // See http://code.google.com/p/gaforflash/source/browse/trunk/src/com/google/analytics/campaign/CampaignTracker.as#236
+                $paramMap = array(
+                    'utmcid'   => 'id',
+                    'utmcsr'   => 'source',
+                    'utmgclid' => 'gClickId',
+                    'utmdclid' => 'dClickId',
+                    'utmccn'   => 'name',
+                    'utmcmd'   => 'medium',
+                    'utmctr'   => 'term',
+                    'utmcct'   => 'content',
+                );
 
-            if(isset($paramMap[$key])) {
-                $method = 'set' . $paramMap[$key];
-                $this->$method(urldecode($val));
+                if(isset($paramMap[$key])) {
+                    $method = 'set' . $paramMap[$key];
+                    $this->$method(urldecode($val));
+                }
             }
         }
-
         // Allow chaining
         return $this;
     }

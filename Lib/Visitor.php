@@ -168,17 +168,19 @@ class Visitor {
      * @return $this
      */
     public function fromUtma($value) {
-        $parts = explode('.', $value);
-        if(count($parts) != 6) {
-            Tracker::_raiseError('The given "__utma" cookie value is invalid.', __METHOD__);
-            return $this;
-        }
+        if($value != null) {
+            $parts = explode('.', $value);
+            if(count($parts) != 6) {
+                Tracker::_raiseError('The given "__utma" cookie value is invalid.', __METHOD__);
+                return $this;
+            }
 
-        $this->setUniqueId($parts[1]);
-        $this->setFirstVisitTime(new DateTime('@' . $parts[2]));
-        $this->setPreviousVisitTime(new DateTime('@' . $parts[3]));
-        $this->setCurrentVisitTime(new DateTime('@' . $parts[4]));
-        $this->setVisitCount($parts[5]);
+            $this->setUniqueId($parts[1]);
+            $this->setFirstVisitTime(new DateTime('@' . $parts[2]));
+            $this->setPreviousVisitTime(new DateTime('@' . $parts[3]));
+            $this->setCurrentVisitTime(new DateTime('@' . $parts[4]));
+            $this->setVisitCount($parts[5]);
+        }
 
         // Allow chaining
         return $this;
