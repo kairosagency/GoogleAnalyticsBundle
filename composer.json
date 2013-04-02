@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Google analytics vendor for symfony2",
     "keywords": ["php-ga","google-analytics"],
-    "homepage": "https://github.com/kairosagency/Symfony2GoogleAnalytics",
+    "homepage": "https://github.com/kairosagency/GoogleAnalyticsBundle.git",
     "license": "",
     "authors": [
         {
@@ -12,7 +12,7 @@
             "role": "Developer"
         },
         {
-            "name": "Mathiew",
+            "name": "Matthiew",
             "homepage": "https://github.com/Matthiew",
             "role": "Developer"
         }

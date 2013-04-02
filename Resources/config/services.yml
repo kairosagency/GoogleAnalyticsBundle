@@ -1,5 +1,5 @@
 parameters:
-    google_analytics.class: Kairos\ArboBundle\Entity\Manager\ElementArboManager
+    google_analytics.class: GoogleAnalytics\Lib\Tracker
 
 services:
     google_analytics:
