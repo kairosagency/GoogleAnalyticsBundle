@@ -41,11 +41,11 @@ And track page (or events etc.) :
     $page->setTitle('My Page');
 
     // Track page view
-    $request = $tracker->trackPageview($page, $session, $visitor);
+    $gaRequest = $tracker->trackPageview($page, $session, $visitor);
 
     // Set the cookies
-    $response = $tracker->setCookies($request);
+    $gaResponse = $tracker->setCookies($request);
 
     // Send the response
-    $response->send();
+    $gaResponse->send();
 ```
