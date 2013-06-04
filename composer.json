@@ -17,12 +17,35 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:kairosagency/php-ga.git"
+        }
+    ],
     "require": {
         "php": ">=5.3.0",
-        "symfony/framework-bundle": ">=2.1,<2.3-dev"
+        "symfony/framework-bundle": ">=2.1,<2.3-dev",
+        "kairosagency/php-ga": "dev-master"
     },
+    "require-dev": {
+        "symfony/yaml": "*",
+        "symfony/browser-kit": "*",
+        "symfony/class-loader": "*",
+        "symfony/finder": "*",
+        "symfony/css-selector": "*",
+        "symfony/process": "*",
+        "doctrine/doctrine-bundle": "*",
+        "symfony/twig-bundle": "*",
+        "doctrine/orm": "*",
+        "symfony/form": "*",
+        "symfony/validator": "*"
+    },
+    "minimum-stability": "dev",
     "autoload": {
-        "psr-0": { "GoogleAnalytics": "" }
+        "psr-0": { "Kairos\\GoogleAnalyticsBundle": "" }
     },
-    "target-dir": "GoogleAnalytics"
+    "target-dir": "Kairos/GoogleAnalyticsBundle"
 }
+
+
