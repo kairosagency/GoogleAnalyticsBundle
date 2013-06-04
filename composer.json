@@ -1,5 +1,5 @@
 {
-    "name": "kairosagency/googleanalyticsbundle",
+    "name": "kairosagency/GoogleAnalyticsBundle",
     "type": "library",
     "description": "Google analytics server side vendor for symfony2",
     "keywords": ["php-ga","google-analytics"],
@@ -15,6 +15,12 @@
             "name": "Matthiew",
             "homepage": "https://github.com/Matthiew",
             "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:kairosagency/php-ga.git"
         }
     ],
     "require": {
