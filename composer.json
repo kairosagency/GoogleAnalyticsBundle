@@ -1,10 +1,10 @@
 {
     "name": "kairosagency/googleanalyticsbundle",
     "type": "library",
-    "description": "Google analytics vendor for symfony2",
+    "description": "Google analytics server side vendor for symfony2",
     "keywords": ["php-ga","google-analytics"],
     "homepage": "https://github.com/kairosagency/GoogleAnalyticsBundle.git",
-    "license": "",
+    "license" : "LGPL-3.0",
     "authors": [
         {
             "name": "t0k4rt",
@@ -26,7 +26,7 @@
     "require": {
         "php": ">=5.3.0",
         "symfony/framework-bundle": ">=2.1,<2.3-dev",
-        "kairosagency/php-ga": "dev-master"
+        "unitedprototype/php-ga": "dev-master"
     },
     "require-dev": {
         "symfony/yaml": "*",
