@@ -1,7 +1,7 @@
 {
     "name": "kairosagency/GoogleAnalyticsBundle",
     "type": "library",
-    "description": "Google analytics server side vendor for symfony2",
+    "description": "Google analytics server side bundle for symfony2",
     "keywords": ["php-ga","google-analytics"],
     "homepage": "https://github.com/kairosagency/GoogleAnalyticsBundle.git",
     "license" : "LGPL-3.0",
