@@ -17,12 +17,6 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
-            "type": "git",
-            "url":"git://github.com/kairosagency/php-ga.git"
-        }
-    ],
     "require": {
         "php": ">=5.3.0",
         "unitedprototype/php-ga": "dev-master",
