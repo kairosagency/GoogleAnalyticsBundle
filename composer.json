@@ -1,5 +1,5 @@
 {
-    "name": "kairosagency/GoogleAnalyticsBundle",
+    "name": " kairos/googleanalytics",
     "type": "library",
     "description": "Google analytics server side bundle for symfony2",
     "keywords": ["php-ga","google-analytics"],
