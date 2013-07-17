@@ -6,24 +6,24 @@ Using cookies
 You now can include the class in your controller
 
 ``` php
-    use GoogleAnalytics;
+    use Kairos\GoogleAnalytics;
 ```
 
 And track page (or events etc.) :
 
 ``` php
     // Init config
-    $config = new GoogleAnalytics\Lib\Config();
+    $config = new GoogleAnalytics\Config();
 
     // Force ip anonymize, mandatory to get ip geolocation
     $config->setAnonymizeIpAddresses(true);
 
     // Initilize GA Tracker and set the config
-    $tracker = $this->get('googleanalytics');
+    $tracker = $this->get('google_analytics');
     $tracker->setConfig($config);
 
     // Assemble Visitor information
-    $visitor = new GoogleAnalytics\Lib\Visitor();
+    $visitor = new GoogleAnalytics\Visitor();
     // Get __utma info from cookie
     $visitor->fromUtma($this->getRequest()->cookies->get('__utma'));
 
@@ -31,13 +31,13 @@ And track page (or events etc.) :
     $visitor->setScreenResolution('1024x768');
 
     // Assemble Session information (could also get unserialized from PHP session)
-    $session = new GoogleAnalytics\Lib\Session();
+    $session = new GoogleAnalytics\Session();
     // Get __utmb info from cookie
     $session->fromUtmb($this->getRequest()->cookies->get('__utmb'));
 
 
     // Assemble Page information
-    $page = new GoogleAnalytics\Lib\Page('/mypage');
+    $page = new GoogleAnalytics\Page('/mypage');
     $page->setTitle('My Page');
 
     // Track page view
