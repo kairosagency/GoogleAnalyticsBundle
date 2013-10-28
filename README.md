@@ -1,6 +1,8 @@
 Getting Started With Server-Side Google Analytics PHP Client
 ==================================
 
+WARNING: Deprecated !!
+
 ## Important  
 This package is directly based on this project from UnitedPrototype : http://code.google.com/p/php-ga/ 
 
