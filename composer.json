@@ -1,7 +1,7 @@
 {
     "name": "kairos/googleanalytics",
     "type": "library",
-    "description": "Google analytics vendor for symfony2",
+    "description": "Google analytics vendor for symfony2. Warning: Deprecated!",
     "keywords": ["php-ga","google-analytics"],
     "homepage": "https://github.com/kairosagency/GoogleAnalyticsBundle.git",
     "license": "",
